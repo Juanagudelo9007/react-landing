@@ -1,10 +1,12 @@
 import React, { useRef, useState } from "react";
 import Burger from "../img/5-removebg-preview.png";
 import { motion, AnimatePresence } from "framer-motion";
+import { div } from "framer-motion/client";
 
 const Hero = () => {
   const resetData = useRef(null);
   const [order, setOrder] = useState(false);
+  const [confirmation, setConfirmation] = useState(false);
   const [form, setForm] = useState({
     name: "",
     address: "",
@@ -38,6 +40,14 @@ const Hero = () => {
     resetForm();
     if (resetData.current) resetData.current.reset();
     setOrder(false);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(form);
+    resetForm();
+    setOrder(false);
+    setConfirmation(true);
   };
 
   return (
@@ -90,6 +100,7 @@ const Hero = () => {
               <div>
                 <form
                   ref={resetData}
+                  onSubmit={handleSubmit}
                   className="
             relative
             flex flex-col w-[350px] bg-[#5f5d5d]/70 p-4 gap-3 rounded-xl"
@@ -150,9 +161,18 @@ const Hero = () => {
                     value={form.notes}
                     onChange={hanldeChange}
                   ></textarea>
-                  <button className="text-white py-2 px-10 bg-red-500 rounded-xl transition-all hover:bg-red-700 duration-300">
+                  <motion.button
+                    type="submit"
+                    className="text-white py-2 px-10 bg-red-500 rounded-xl"
+                    whileHover={{ backgroundColor: "#b91c1c" }}
+                    whileTap={{ scale: 0.75 }}
+                    transition={{
+                      duration: 0.33,
+                      ease: "easeOut",
+                    }}
+                  >
                     Submit
-                  </button>
+                  </motion.button>
                   <motion.button
                     type="button"
                     className="absolute text-white top-1 right-3 transition-all hover:text-black duration-300 text-[20px]"
@@ -172,6 +192,38 @@ const Hero = () => {
           )}
         </AnimatePresence>
       </div>
+
+      {/* Confirmation Message */}
+      <AnimatePresence>
+        {confirmation && (
+          <motion.div
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0, opacity: 0 }}
+            transition={{
+              duration: 0.4,
+            }}
+            className="fixed top-0 left-0 w-full h-full bg-black/60 flex justify-center items-center backdrop-blur-sm"
+          >
+            <div
+              className="text-center p-4 rounded-sm
+       bg-white w-[300px]"
+            >
+              <h2 className="text-black mb-3 font-bold">
+                Your Order Was placed!
+              </h2>
+              <motion.button
+                className="bg-gray-500 px-6 py-1 rounded-lg font-extrabold text-white"
+                whileHover={{ scale: 1.15, backgroundColor: "	#374151" }}
+                whileTap={{ scale: 0.75 }}
+                onClick={() => setConfirmation(false)}
+              >
+                Ok
+              </motion.button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
