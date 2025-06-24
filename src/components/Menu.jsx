@@ -5,6 +5,7 @@ import img3 from "../img/burger3.png";
 import img4 from "../img/burger4.png";
 import img5 from "../img/burger5.png";
 import img6 from "../img/5-removebg-preview.png";
+import { GrNext, GrPrevious } from "react-icons/gr";
 
 const cards = [
   {
@@ -78,23 +79,30 @@ const Menu = () => {
   return (
     <div className="w-full min-h-screen bg-white ">
       <div className="flex items-center space-x-4 p-14 h-screen ">
-        <button 
-        onClick={prev}>previous</button>
+        <button onClick={prev}>
+          <GrPrevious className="text-[45px]" />
+        </button>
         {visibleCards.map((card) => (
           <div
-            className="flex flex-col items-center gap-6 shadow-lg p-6 rounded-lg  text-justify"
+            className="relative group flex flex-col items-center gap-6 shadow-lg p-6 rounded-lg  text-justify"
             key={card.id}
           >
-            <h1>{card.title}</h1>
+            <h1 className="font-extrabold text-[35px]">{card.title}</h1>
             <img
               className="w-full h-[250px] object-contain my-6"
               src={card.img}
             />
-            <p>{card.description}</p>
-            <span>{card.price}</span>
+            <p className="text-[17px]">{card.description}</p>
+            <strong className="text-[20px]">{card.price}</strong>
+            {/* Overlay Oder Now*/}
+            <div className="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all duration-500">
+                <button className="font-extrabold px-12 py-4 bg-red-600 rounded-lg text-white">Order Now!</button>
+            </div>
           </div>
         ))}
-        <button onClick={next}>next</button>
+        <button onClick={next}>
+          <GrNext className="text-[45px]" />
+        </button>
       </div>
     </div>
   );
