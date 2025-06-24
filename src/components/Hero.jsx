@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react";
 import Burger from "../img/5-removebg-preview.png";
 import { motion, AnimatePresence } from "framer-motion";
-import { div } from "framer-motion/client";
 
 const Hero = () => {
   const resetData = useRef(null);
@@ -14,22 +13,22 @@ const Hero = () => {
     quantity: 1,
     notes: "",
   });
-
   const hanldeChange = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
-  };
+    const { name, value } = e.target;
 
-  const resetForm = () => {
-    setForm({
-      name: "",
-      address: "",
-      phone: "",
-      quantity: 1,
-      notes: "",
-    });
+    if (name === "phone") {
+      if (/^\d*$/.test(value)) {
+        setForm({
+          ...form,
+          [name]: value,
+        });
+      }
+    } else {
+      setForm({
+        ...form,
+        [name]: value,
+      });
+    }
   };
 
   const toggleOrder = () => {
@@ -134,8 +133,9 @@ const Hero = () => {
                     <input
                       className="text-white ml-2 outline-white outline-1 rounded-sm"
                       name="phone"
-                      type="text"
-                      placeholder="..."
+                      type="tel"
+                      pattern="[0-9]*"
+                      inputMode="numeric"
                       value={form.phone}
                       onChange={hanldeChange}
                       required

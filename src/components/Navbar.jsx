@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaInstagram, FaFacebook } from "react-icons/fa";
 import { IoMdClose, IoMdMenu } from "react-icons/io";
+import { motion } from "framer-motion";
 
 const navLinks = [
   {
