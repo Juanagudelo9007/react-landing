@@ -13,7 +13,8 @@ const Hero = () => {
     quantity: 1,
     notes: "",
   });
-  const hanldeChange = (e) => {
+
+  const handleChange = (e) => {
     const { name, value } = e.target;
 
     if (name === "phone") {
@@ -29,6 +30,16 @@ const Hero = () => {
         [name]: value,
       });
     }
+  };
+
+  const resetForm = () => {
+    setForm({
+      name: "",
+      address: "",
+      phone: "",
+      quantity: 1,
+      notes: "",
+    });
   };
 
   const toggleOrder = () => {
@@ -112,7 +123,7 @@ const Hero = () => {
                       type="text"
                       placeholder="..."
                       value={form.name}
-                      onChange={hanldeChange}
+                      onChange={handleChange}
                       required
                     />
                   </label>
@@ -124,7 +135,7 @@ const Hero = () => {
                       type="text"
                       placeholder="Address..."
                       value={form.address}
-                      onChange={hanldeChange}
+                      onChange={handleChange}
                       required
                     />
                   </label>
@@ -137,7 +148,7 @@ const Hero = () => {
                       pattern="[0-9]*"
                       inputMode="numeric"
                       value={form.phone}
-                      onChange={hanldeChange}
+                      onChange={handleChange}
                       required
                     />
                   </label>
@@ -150,7 +161,7 @@ const Hero = () => {
                       min="1"
                       placeholder=""
                       value={form.quantity}
-                      onChange={hanldeChange}
+                      onChange={handleChange}
                       required
                     />
                   </label>
@@ -159,7 +170,7 @@ const Hero = () => {
                     name="notes"
                     placeholder="Special Instructions..."
                     value={form.notes}
-                    onChange={hanldeChange}
+                    onChange={handleChange}
                   ></textarea>
                   <motion.button
                     type="submit"
