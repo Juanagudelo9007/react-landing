@@ -77,32 +77,63 @@ const Menu = () => {
   };
 
   return (
-    <div className="w-full min-h-screen bg-white ">
-      <div className="flex items-center space-x-4 p-14 h-screen ">
+    <div className="w-full min-h-screen bg-white">
+      {/* Big Screen */}
+      <div className="hidden md:flex items-center space-x-4 p-14 h-screen">
         <button onClick={prev}>
           <GrPrevious className="text-[45px]" />
         </button>
         {visibleCards.map((card) => (
           <div
-            className="relative group flex flex-col items-center gap-6 shadow-lg p-6 rounded-lg  text-justify"
+            className="relative group md:flex md:flex-col items-center gap-6 shadow-2xl p-6 rounded-lg text-center md:text-justify grid grid-cols-1 md:w-[300px]"
             key={card.id}
           >
-            <h1 className="font-extrabold text-[35px]">{card.title}</h1>
+            <h1 className="font-extrabold text-[20px] md:text-[35px]">
+              {card.title}
+            </h1>
             <img
-              className="w-full h-[250px] object-contain my-6"
+              className="w-full md:h-[250px] object-contain my-6"
               src={card.img}
             />
-            <p className="text-[17px]">{card.description}</p>
-            <strong className="text-[20px]">{card.price}</strong>
-            {/* Overlay Oder Now*/}
-            <div className="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all duration-500">
-                <button className="font-extrabold px-12 py-4 bg-red-600 rounded-lg text-white">Order Now!</button>
+            <p className="md:text-[17px]">{card.description}</p>
+            <strong className="md:text-[20px]">{card.price}</strong>
+            <div className="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all duration-500 rounded-lg">
+              <button className="font-extrabold px-12 py-4 bg-red-600 rounded-lg text-white">
+                Order Now!
+              </button>
             </div>
           </div>
         ))}
         <button onClick={next}>
           <GrNext className="text-[45px]" />
         </button>
+      </div>
+
+      {/*  mobile */}
+      <div className="md:hidden flex overflow-x-auto snap-x snap-mandatory space-x-4 px-4 py-10">
+        {cards.map((card) => (
+          <div
+            className="min-w-[85%] snap-center bg-white shadow-xl rounded-lg p-6 relative group"
+            key={card.id}
+          >
+            <h1 className="font-extrabold text-[20px] text-center">
+              {card.title}
+            </h1>
+            <img
+              className="w-full h-[200px] object-contain my-6"
+              src={card.img}
+            />
+            <p className="text-[15px] text-center">{card.description}</p>
+            <strong className="text-[18px] block text-center mt-2">
+              {card.price}
+            </strong>
+            <div className="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all duration-500 rounded-lg">
+              <button className="font-extrabold px-10 py-3 bg-red-600 rounded-lg text-white">
+                Order Now!
+              </button>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
