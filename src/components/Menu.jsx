@@ -85,17 +85,17 @@ const Menu = () => {
         </button>
         {visibleCards.map((card) => (
           <div
-            className="relative group md:flex md:flex-col items-center gap-6 shadow-2xl p-6 rounded-lg text-center md:text-justify grid grid-cols-1 md:w-[300px]"
+            className="relative group md:flex md:flex-col items-center gap-6 shadow-2xl p-6 rounded-lg text-center md:text-justify grid grid-cols-1 md:w-[500px] h-[550px]"
             key={card.id}
           >
-            <h1 className="font-extrabold text-[20px] md:text-[35px]">
+            <h1 className="font-extrabold text-[20px] md:text-[35px] ">
               {card.title}
             </h1>
             <img
-              className="w-full md:h-[250px] object-contain my-6"
+              className="w-full md:h-[250px] object-contain my-4"
               src={card.img}
             />
-            <p className="md:text-[17px]">{card.description}</p>
+            <p className="md:text-[17px] flex-grow">{card.description}</p>
             <strong className="md:text-[20px]">{card.price}</strong>
             <div className="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all duration-500 rounded-lg">
               <button className="font-extrabold px-12 py-4 bg-red-600 rounded-lg text-white">
