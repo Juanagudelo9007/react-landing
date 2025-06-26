@@ -10,7 +10,6 @@ const App = () => {
       <Hero />
       <Menu />
     </div>
-
   );
 };
 

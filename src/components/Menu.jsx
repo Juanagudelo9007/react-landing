@@ -85,10 +85,10 @@ const Menu = () => {
         </button>
         {visibleCards.map((card) => (
           <div
-            className="relative group md:flex md:flex-col items-center gap-6 shadow-2xl p-6 rounded-lg text-center md:text-justify grid grid-cols-1 md:w-[500px] h-[550px]"
+            className="relative group md:flex md:flex-col items-center gap-6 shadow-2xl shadow-black/50 p-4 rounded-lg text-center md:text-justify grid grid-cols-1 md:w-[500px] h-[550px]"
             key={card.id}
           >
-            <h1 className="font-extrabold text-[20px] md:text-[35px] ">
+            <h1 className="font-extrabold text-[20px] md:text-[25px] ">
               {card.title}
             </h1>
             <img
@@ -113,7 +113,7 @@ const Menu = () => {
       <div className="md:hidden flex overflow-x-auto snap-x snap-mandatory space-x-4 px-4 py-10">
         {cards.map((card) => (
           <div
-            className="min-w-[85%] snap-center bg-white shadow-xl rounded-lg p-6 relative group"
+            className="min-w-[85%] snap-center bg-white shadow-black/40 shadow-xl rounded-lg p-6 relative group"
             key={card.id}
           >
             <h1 className="font-extrabold text-[20px] text-center">
