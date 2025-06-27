@@ -6,6 +6,8 @@ import img4 from "../img/burger4.png";
 import img5 from "../img/burger5.png";
 import img6 from "../img/5-removebg-preview.png";
 import { GrNext, GrPrevious } from "react-icons/gr";
+import { OrderContext } from "../Context/ContextP";
+import { useContext } from "react";
 
 const cards = [
   {
@@ -59,7 +61,7 @@ const cards = [
 ];
 
 const Menu = () => {
-
+  const { toggleOrder } = useContext(OrderContext);
 
   const [index, setIndex] = useState(0);
   const cardsCount = 2;
@@ -81,7 +83,7 @@ const Menu = () => {
   return (
     <div className="w-full min-h-screen bg-white">
       {/* Big Screen */}
-      <div className="hidden md:flex items-center space-x-4 p-14 h-screen">
+      <div className="hidden md:flex items-center justify-center space-x-4 p-14 h-screen">
         <button onClick={prev}>
           <GrPrevious className="text-[45px]" />
         </button>
@@ -100,7 +102,10 @@ const Menu = () => {
             <p className="md:text-[17px] flex-grow">{card.description}</p>
             <strong className="md:text-[20px]">{card.price}</strong>
             <div className="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all duration-500 rounded-lg">
-              <button className="font-extrabold px-12 py-4 bg-red-600 rounded-lg text-white">
+              <button
+                className="font-extrabold px-12 py-4 bg-red-600 rounded-lg text-white"
+                onClick={toggleOrder}
+              >
                 Order Now!
               </button>
             </div>
