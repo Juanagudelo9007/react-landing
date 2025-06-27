@@ -1,7 +1,11 @@
 import Burger from "../img/5-removebg-preview.png";
 import { motion, AnimatePresence } from "framer-motion";
+import { OrderContext } from "../Context/ContextP";
+import { useContext } from "react";
 
 const Hero = () => {
+  const { toggleOrder } = useContext(OrderContext);
+
   return (
     <section className="mt-32">
       <div className="grid grid-cols-1 md:grid-cols-2">
@@ -18,6 +22,7 @@ const Hero = () => {
           <div className="flex justify-center gap-8 mt-6">
             <motion.button
               className="text-white bg-red-500 py-2 px-10 rounded-xl "
+              onClick={toggleOrder}
               whileHover={{ scale: 1.17, backgroundColor: "#b91c1c" }}
               whileTap={{ scale: 0.75, rotate: "5.5deg" }}
               transition={{

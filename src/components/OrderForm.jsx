@@ -1,100 +1,21 @@
-import React, { useRef, useState } from "react";
-import Burger from "../img/5-removebg-preview.png";
 import { motion, AnimatePresence } from "framer-motion";
+import { OrderContext } from "../Context/ContextP";
+import { useContext } from "react";
 
-const Hero = () => {
-  const resetData = useRef(null);
-  const [order, setOrder] = useState(false);
-  const [confirmation, setConfirmation] = useState(false);
-  const [form, setForm] = useState({
-    name: "",
-    address: "",
-    phone: "",
-    quantity: 1,
-    notes: "",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-
-    if (name === "phone") {
-      if (/^\d*$/.test(value)) {
-        setForm({
-          ...form,
-          [name]: value,
-        });
-      }
-    } else {
-      setForm({
-        ...form,
-        [name]: value,
-      });
-    }
-  };
-
-  const resetForm = () => {
-    setForm({
-      name: "",
-      address: "",
-      phone: "",
-      quantity: 1,
-      notes: "",
-    });
-  };
-
-  const toggleOrder = () => {
-    setOrder(!order);
-  };
-
-  const handleClose = () => {
-    resetForm();
-    if (resetData.current) resetData.current.reset();
-    setOrder(false);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(form);
-    resetForm();
-    setOrder(false);
-    setConfirmation(true);
-  };
-
+const OrderForm = () => {
+  const {
+    order,
+    resetData,
+    handleSubmit,
+    handleChange,
+    form,
+    handleClose,
+    confirmation,
+    setConfirmation,
+  } = useContext(OrderContext);
   return (
     <section className="mt-32">
       <div className="grid grid-cols-1 md:grid-cols-2">
-        <div className="p-10  ">
-          <h1 className="text-white text-6xl mb-5 font-extrabold">Drip Boss</h1>
-          <p className="text-white text-justify">
-            Introducing the Drip Boss — a powerhouse burger loaded with double
-            beef patties, crispy double bacon, crunchy pickles, and drenched in
-            our signature, mouth-watering sauces. Bold, messy, and absolutely
-            unforgettable, this burger is made for those who crave maximum
-            flavor and an epic eating experience. Get ready to rule the burger
-            game with every bite!
-          </p>
-          <div className="flex justify-center gap-8 mt-6">
-            <motion.button
-              onClick={toggleOrder}
-              className="text-white bg-red-500 py-2 px-10 rounded-xl "
-              whileHover={{ scale: 1.17, backgroundColor: "#b91c1c" }}
-              whileTap={{ scale: 0.75, rotate: "5.5deg" }}
-              transition={{
-                duration: 0.33,
-                ease: "easeOut",
-              }}
-            >
-              Order Now
-            </motion.button>
-            <button className="text-white bg-red-500 py-2 px-10 rounded-xl transition-all hover:bg-red-700 duration-300 ">
-              Menu
-            </button>
-          </div>
-        </div>
-        <div>
-          {/* Img */}
-          <img src={Burger} className="md:mt-10" />
-        </div>
         {/* Order Now Form*/}
         <AnimatePresence>
           {order && (
@@ -239,4 +160,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default OrderForm;
