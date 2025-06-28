@@ -8,6 +8,7 @@ import img6 from "../img/5-removebg-preview.png";
 import { GrNext, GrPrevious } from "react-icons/gr";
 import { OrderContext } from "../Context/ContextP";
 import { useContext } from "react";
+import { motion } from "framer-motion";
 
 const cards = [
   {
@@ -102,12 +103,23 @@ const Menu = () => {
             <p className="md:text-[17px] flex-grow">{card.description}</p>
             <strong className="md:text-[20px]">{card.price}</strong>
             <div className="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all duration-300 rounded-lg">
-              <button
+              <motion.button
                 className="font-extrabold px-12 py-4 bg-red-600 rounded-lg text-white"
                 onClick={toggleOrder}
+                whileTap={{ scale: 0.9 }}
+                whileHover={{
+                  scale: 1.07,
+                  backgroundColor: "#b91c1c",
+                  boxShadow: "0px 8px 16px rgba(0,0,0,0.3)",
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 400,
+                  damping: 20,
+                }}
               >
                 Order Now!
-              </button>
+              </motion.button>
             </div>
           </div>
         ))}
@@ -135,12 +147,20 @@ const Menu = () => {
               {card.price}
             </strong>
             <div className="flex justify-center md:hidden mt-4">
-              <button
-                className="font-extrabold px-10 py-3 bg-red-600 rounded-lg text-white"
+              <motion.button
+                className="font-extrabold px-10 py-4 bg-red-600 rounded-lg text-white"
                 onClick={toggleOrder}
+                whileTap={{
+                  scale: 0.8,
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 400,
+                  damping: 22,
+                }}
               >
                 Order Now!
-              </button>
+              </motion.button>
             </div>
           </div>
         ))}

@@ -23,18 +23,39 @@ const Hero = () => {
             <motion.button
               className="text-white bg-red-500 py-2 px-10 rounded-xl "
               onClick={toggleOrder}
-              whileHover={{ scale: 1.17, backgroundColor: "#b91c1c" }}
-              whileTap={{ scale: 0.75, rotate: "5.5deg" }}
+              whileHover={{
+                scale: 1.17,
+                backgroundColor: "#b91c1c",
+                boxShadow: "0px 8px 16px rgba(0,0,0,0.3)",
+              }}
+              whileTap={{
+                scale: 1,
+              }}
               transition={{
                 duration: 0.33,
                 ease: "easeOut",
+                type: "spring",
+                stiffness: 400,
+                damping: 20,
               }}
             >
               Order Now
             </motion.button>
-            <button className="text-white bg-red-500 py-2 px-10 rounded-xl transition-all hover:bg-red-700 duration-300 ">
+            <motion.button
+              className="text-white bg-red-500 py-2 px-10 rounded-xl shadow-md"
+              whileHover={{
+                scale: 1.1,
+                backgroundColor: "#b91c1c",
+              }}
+              whileTap={{ scale: 0.9 }}
+              transition={{
+                type: "spring",
+                stiffness: 400,
+                damping: 20,
+              }}
+            >
               Menu
-            </button>
+            </motion.button>
           </div>
         </div>
         <div>

@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { OrderContext } from "../Context/ContextP";
 import { useContext } from "react";
+import { FaWindowClose } from "react-icons/fa";
 
 const OrderForm = () => {
   const {
@@ -101,22 +102,26 @@ const OrderForm = () => {
                     transition={{
                       duration: 0.33,
                       ease: "easeOut",
+                      type: "spring",
+                      stiffness: 400,
+                      damping: 20,
                     }}
                   >
                     Submit
                   </motion.button>
                   <motion.button
                     type="button"
-                    className="absolute text-white top-1 right-3 transition-all hover:text-black duration-300 text-[20px]"
-                    initial={{ scale: 1, opacity: 1 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    exit={{ scale: 0, opacity: 0 }}
-                    transition={{
-                      duration: 0.3,
-                    }}
+                    className="absolute text-white top-1 right-1  text-[20px]"
                     onClick={handleClose}
+                    whileTap={{ scale: 0.7 }}
+                    whileHover={{ color: "black" }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 400,
+                      damping: 22,
+                    }}
                   >
-                    X
+                    <FaWindowClose className="rounded-xl" />
                   </motion.button>
                 </form>
               </div>

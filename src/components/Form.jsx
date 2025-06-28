@@ -1,65 +1,63 @@
-
 import { motion, AnimatePresence } from "framer-motion";
 import React, { useRef, useState } from "react";
 
 const Form = () => {
+  const resetData = useRef(null);
+  const [order, setOrder] = useState(false);
+  const [confirmation, setConfirmation] = useState(false);
+  const [form, setForm] = useState({
+    name: "",
+    address: "",
+    phone: "",
+    quantity: 1,
+    notes: "",
+  });
 
- const resetData = useRef(null);
- const [order, setOrder] = useState(false);
- const [confirmation, setConfirmation] = useState(false);
- const [form, setForm] = useState({
-   name: "",
-   address: "",
-   phone: "",
-   quantity: 1,
-   notes: "",
- });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
 
- const handleChange = (e) => {
-   const { name, value } = e.target;
+    if (name === "phone") {
+      if (/^\d*$/.test(value)) {
+        setForm({
+          ...form,
+          [name]: value,
+        });
+      }
+    } else {
+      setForm({
+        ...form,
+        [name]: value,
+      });
+    }
+  };
 
-   if (name === "phone") {
-     if (/^\d*$/.test(value)) {
-       setForm({
-         ...form,
-         [name]: value,
-       });
-     }
-   } else {
-     setForm({
-       ...form,
-       [name]: value,
-     });
-   }
- };
+  const resetForm = () => {
+    setForm({
+      name: "",
+      address: "",
+      phone: "",
+      quantity: 1,
+      notes: "",
+    });
+  };
 
- const resetForm = () => {
-   setForm({
-     name: "",
-     address: "",
-     phone: "",
-     quantity: 1,
-     notes: "",
-   });
- };
+  const toggleOrder = () => {
+    setOrder(!order);
+  };
 
- const toggleOrder = () => {
-   setOrder(!order);
- };
+  const handleClose = () => {
+    resetForm();
+    if (resetData.current) resetData.current.reset();
+    setOrder(false);
+  };
 
- const handleClose = () => {
-   resetForm();
-   if (resetData.current) resetData.current.reset();
-   setOrder(false);
- };
-
- const handleSubmit = (e) => {
-   e.preventDefault();
-   console.log(form);
-   resetForm();
-   setOrder(false);
-   setConfirmation(true);
- };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(form);
+    resetForm();
+    setOrder(false);
+    setConfirmation(true);
+  };
 
   return (
     <div>
@@ -220,6 +218,6 @@ const Form = () => {
       </AnimatePresence>
     </div>
   );
-}
+};
 
-export default Form
+export default Form;
