@@ -85,9 +85,19 @@ const Menu = () => {
     <div className="w-full min-h-screen bg-white">
       {/* Big Screen */}
       <div className="hidden md:flex items-center justify-center space-x-4 p-14 h-screen">
-        <button onClick={prev}>
+        <motion.button
+          onClick={prev}
+          whileTap={{
+            scale: 0.7,
+          }}
+          transition={{
+            type: "spring",
+            stiffness: 500,
+            damping: 30,
+          }}
+        >
           <GrPrevious className="text-[45px]" />
-        </button>
+        </motion.button>
         {visibleCards.map((card) => (
           <div
             className="relative group md:flex md:flex-col items-center gap-6 shadow-2xl shadow-black/50 p-4 rounded-lg text-center md:text-justify grid grid-cols-1 md:w-[500px] h-[550px]"
@@ -123,9 +133,19 @@ const Menu = () => {
             </div>
           </div>
         ))}
-        <button onClick={next}>
+        <motion.button
+          onClick={next}
+          whileTap={{
+            scale: 0.7,
+          }}
+          transition={{
+            type: "spring",
+            stiffness: 500,
+            damping: 30,
+          }}
+        >
           <GrNext className="text-[45px]" />
-        </button>
+        </motion.button>
       </div>
 
       {/*  mobile */}
