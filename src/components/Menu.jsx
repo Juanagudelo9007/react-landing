@@ -136,14 +136,9 @@ const Menu = () => {
             </strong>
             <div className="flex justify-center md:hidden mt-4">
               <button
-                onClick={toggleOrder}
                 className="font-extrabold px-10 py-3 bg-red-600 rounded-lg text-white"
+                onClick={toggleOrder}
               >
-                Order Now!
-              </button>
-            </div>
-            <div className="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all duration-500 rounded-lg">
-              <button className="font-extrabold px-10 py-3 bg-red-600 rounded-lg text-white">
                 Order Now!
               </button>
             </div>
