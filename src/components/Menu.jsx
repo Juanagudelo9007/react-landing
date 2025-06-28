@@ -101,7 +101,7 @@ const Menu = () => {
             />
             <p className="md:text-[17px] flex-grow">{card.description}</p>
             <strong className="md:text-[20px]">{card.price}</strong>
-            <div className="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all duration-500 rounded-lg">
+            <div className="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all duration-300 rounded-lg">
               <button
                 className="font-extrabold px-12 py-4 bg-red-600 rounded-lg text-white"
                 onClick={toggleOrder}
@@ -134,6 +134,14 @@ const Menu = () => {
             <strong className="text-[18px] block text-center mt-2">
               {card.price}
             </strong>
+            <div className="flex justify-center md:hidden mt-4">
+              <button
+                onClick={toggleOrder}
+                className="font-extrabold px-10 py-3 bg-red-600 rounded-lg text-white"
+              >
+                Order Now!
+              </button>
+            </div>
             <div className="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all duration-500 rounded-lg">
               <button className="font-extrabold px-10 py-3 bg-red-600 rounded-lg text-white">
                 Order Now!
