@@ -26,7 +26,7 @@ const WeeklySpecial = () => {
             boxShadow: "0px 8px 16px rgba(0,0,0,0.3)",
           }}
           whileTap={{
-            scale: 0.75,
+            scale: 0.8,
           }}
           transition={{
             duration: 0.33,

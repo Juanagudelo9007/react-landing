@@ -20,7 +20,7 @@ const navLinks = [
     name: "Contact",
     link: "contact",
   },
-    {
+  {
     id: 4,
     name: "Weekly Special",
     link: "Weekly Special",
@@ -40,7 +40,6 @@ const socialM = [
     link: "about",
     icon: FaFacebook,
   },
-  
 ];
 
 const Navbar = () => {

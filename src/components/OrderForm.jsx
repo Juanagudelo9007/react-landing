@@ -35,12 +35,12 @@ const OrderForm = () => {
                   onSubmit={handleSubmit}
                   className="
             relative
-            flex flex-col w-[350px] bg-[#5f5d5d]/70 p-4 gap-3 rounded-xl"
+            flex flex-col w-[350px] bg-[#5f5d5d]/70 p-4 gap-3 rounded-xl items-center"
                 >
                   <label className="text-white font-extrabold">
                     Name:
                     <input
-                      className="text-white ml-2 outline-1 outline-white rounded-sm"
+                      className="text-white ml-2 outline-1 outline-white rounded-sm "
                       name="name"
                       type="text"
                       placeholder="..."
@@ -96,7 +96,7 @@ const OrderForm = () => {
                   ></textarea>
                   <motion.button
                     type="submit"
-                    className="text-white py-2 px-10 bg-red-500 rounded-xl"
+                    className="text-white py-2 px-10 w-[250px] bg-red-500 rounded-xl"
                     whileHover={{ backgroundColor: "#b91c1c" }}
                     whileTap={{ scale: 0.7 }}
                     transition={{

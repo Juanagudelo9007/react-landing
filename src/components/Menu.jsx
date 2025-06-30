@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import img1 from "../img/burger1.png";
 import img2 from "../img/burger2.png";
 import img3 from "../img/burger3.png";
@@ -7,7 +7,6 @@ import img5 from "../img/burger5.png";
 import img6 from "../img/5-removebg-preview.png";
 import { GrNext, GrPrevious } from "react-icons/gr";
 import { OrderContext } from "../Context/ContextP";
-import { useContext } from "react";
 import { motion } from "framer-motion";
 
 const cards = [
@@ -87,46 +86,38 @@ const Menu = () => {
       <div className="hidden md:flex items-center justify-center space-x-4 p-14 h-screen">
         <motion.button
           onClick={prev}
-          whileTap={{
-            scale: 0.7,
-          }}
-          transition={{
-            type: "spring",
-            stiffness: 500,
-            damping: 20,
-          }}
+          whileTap={{ scale: 0.7 }}
+          transition={{ type: "spring", stiffness: 500, damping: 20 }}
         >
           <GrPrevious className="text-[45px]" />
         </motion.button>
         {visibleCards.map((card) => (
           <div
-            className="relative group md:flex md:flex-col items-center gap-6 shadow-2xl shadow-black/50 p-4 rounded-lg text-center md:text-justify grid grid-cols-1 md:w-[500px] h-[500px]"
+            className="relative group md:flex md:flex-col justify-between items-center gap-4 shadow-2xl shadow-black/50 p-4 rounded-lg text-center md:text-justify md:w-[500px] h-[500px]"
             key={card.id}
           >
-            <h1 className="font-extrabold text-[15px] md:text-[20px] ">
+            <h1 className="font-extrabold text-[15px] md:text-[20px]">
               {card.title}
             </h1>
             <img
               className="w-full md:h-[200px] object-contain my-4"
               src={card.img}
             />
-            <p className="md:text-[17px] flex-grow">{card.description}</p>
+            <p className="md:text-[17px] line-clamp-4 h-[100px] overflow-hidden">
+              {card.description}
+            </p>
             <strong className="md:text-[20px]">{card.price}</strong>
             <div className="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all duration-300 rounded-lg">
               <motion.button
                 className="font-extrabold px-12 py-4 bg-red-600 rounded-lg text-white"
                 onClick={toggleOrder}
-                whileTap={{ scale: 0.9 }}
+                whileTap={{ scale: 0.8 }}
                 whileHover={{
                   scale: 1.07,
                   backgroundColor: "#b91c1c",
                   boxShadow: "0px 8px 16px rgba(0,0,0,0.3)",
                 }}
-                transition={{
-                  type: "spring",
-                  stiffness: 400,
-                  damping: 20,
-                }}
+                transition={{ type: "spring", stiffness: 400, damping: 20 }}
               >
                 Order Now!
               </motion.button>
@@ -135,20 +126,14 @@ const Menu = () => {
         ))}
         <motion.button
           onClick={next}
-          whileTap={{
-            scale: 0.6,
-          }}
-          transition={{
-            type: "spring",
-            stiffness: 500,
-            damping: 20,
-          }}
+          whileTap={{ scale: 0.6 }}
+          transition={{ type: "spring", stiffness: 500, damping: 20 }}
         >
           <GrNext className="text-[45px]" />
         </motion.button>
       </div>
 
-      {/*  mobile */}
+      {/* Mobile */}
       <div className="md:hidden flex overflow-x-auto snap-x snap-mandatory space-x-4 px-4 py-10">
         {cards.map((card) => (
           <div
@@ -171,14 +156,10 @@ const Menu = () => {
                 className="font-extrabold px-10 py-4 bg-red-600 rounded-lg text-white"
                 onClick={toggleOrder}
                 whileTap={{
-                  scale: 0.75,
+                  scale: 0.7,
                   boxShadow: "0px 6px 7px rgba(0, 0, 0, 0.5)",
                 }}
-                transition={{
-                  type: "spring",
-                  stiffness: 400,
-                  damping: 20,
-                }}
+                transition={{ type: "spring", stiffness: 400, damping: 20 }}
               >
                 Order Now!
               </motion.button>
