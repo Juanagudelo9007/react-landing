@@ -65,7 +65,7 @@ const Menu = () => {
   const { toggleOrder } = useContext(OrderContext);
 
   const [index, setIndex] = useState(0);
-  const cardsCount = 2;
+  const cardsCount = 3;
 
   const visibleCards = [];
 
@@ -100,14 +100,14 @@ const Menu = () => {
         </motion.button>
         {visibleCards.map((card) => (
           <div
-            className="relative group md:flex md:flex-col items-center gap-6 shadow-2xl shadow-black/50 p-4 rounded-lg text-center md:text-justify grid grid-cols-1 md:w-[500px] h-[550px]"
+            className="relative group md:flex md:flex-col items-center gap-6 shadow-2xl shadow-black/50 p-4 rounded-lg text-center md:text-justify grid grid-cols-1 md:w-[500px] h-[500px]"
             key={card.id}
           >
-            <h1 className="font-extrabold text-[20px] md:text-[25px] ">
+            <h1 className="font-extrabold text-[15px] md:text-[20px] ">
               {card.title}
             </h1>
             <img
-              className="w-full md:h-[250px] object-contain my-4"
+              className="w-full md:h-[200px] object-contain my-4"
               src={card.img}
             />
             <p className="md:text-[17px] flex-grow">{card.description}</p>
@@ -171,7 +171,7 @@ const Menu = () => {
                 className="font-extrabold px-10 py-4 bg-red-600 rounded-lg text-white"
                 onClick={toggleOrder}
                 whileTap={{
-                  scale: 0.8,
+                  scale: 0.75,
                   boxShadow: "0px 6px 7px rgba(0, 0, 0, 0.5)",
                 }}
                 transition={{

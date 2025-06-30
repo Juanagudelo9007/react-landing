@@ -20,6 +20,11 @@ const navLinks = [
     name: "Contact",
     link: "contact",
   },
+    {
+    id: 4,
+    name: "Weekly Special",
+    link: "Weekly Special",
+  },
 ];
 
 const socialM = [
@@ -35,6 +40,7 @@ const socialM = [
     link: "about",
     icon: FaFacebook,
   },
+  
 ];
 
 const Navbar = () => {
@@ -59,9 +65,9 @@ const Navbar = () => {
         {/*Overlay and Mobile Menu on Portal*/}
         {isOpen &&
           ReactDOM.createPortal(
-            <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm md:hidden flex items-center">
+            <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm md:hidden flex place-content-center">
               <div className="absolute w-full bg-transparent transition-all duration-500">
-                <ul className="flex flex-col px-4 py-2">
+                <ul className=" flex flex-col px-4 py-2  mt-40">
                   {navLinks.map((link) => (
                     <li className="py-2 text-center" key={link.id}>
                       <a

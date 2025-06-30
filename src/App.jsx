@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Menu from "./components/Menu";
 import OrderForm from "./components/OrderForm";
+import WeeklySpecial from "./components/WeeklySpecial";
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
         <Hero />
         <OrderForm />
         <Menu />
+        <WeeklySpecial />
     </div>
   );
 };
