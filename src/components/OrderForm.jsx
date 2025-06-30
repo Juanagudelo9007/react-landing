@@ -98,9 +98,9 @@ const OrderForm = () => {
                     type="submit"
                     className="text-white py-2 px-10 bg-red-500 rounded-xl"
                     whileHover={{ backgroundColor: "#b91c1c" }}
-                    whileTap={{ scale: 0.75 }}
+                    whileTap={{ scale: 0.7 }}
                     transition={{
-                      duration: 0.33,
+                      duration: 0.23,
                       ease: "easeOut",
                       type: "spring",
                       stiffness: 400,

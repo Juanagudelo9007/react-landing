@@ -172,11 +172,12 @@ const Menu = () => {
                 onClick={toggleOrder}
                 whileTap={{
                   scale: 0.8,
+                  boxShadow: "0px 6px 7px rgba(0, 0, 0, 0.5)",
                 }}
                 transition={{
                   type: "spring",
                   stiffness: 400,
-                  damping: 22,
+                  damping: 20,
                 }}
               >
                 Order Now!

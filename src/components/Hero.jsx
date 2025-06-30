@@ -52,6 +52,7 @@ const Hero = () => {
                 type: "spring",
                 stiffness: 400,
                 damping: 20,
+                bounce: 1,
               }}
             >
               Menu
