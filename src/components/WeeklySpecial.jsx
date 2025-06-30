@@ -18,7 +18,7 @@ const WeeklySpecial = () => {
           fries, and a refreshing soda — all in one unbeatable combo
         </p>
         <motion.button
-          className="text-white bg-red-500 py-2 px-20 rounded-xl mt-10 "
+          className="text-white bg-red-500 py-3 px-20 rounded-xl mt-10 "
           onClick={toggleOrder}
           whileHover={{
             scale: 1.1,

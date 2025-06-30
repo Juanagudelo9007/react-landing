@@ -93,7 +93,7 @@ const Menu = () => {
         </motion.button>
         {visibleCards.map((card) => (
           <div
-            className="relative group md:flex md:flex-col justify-between items-center gap-4 shadow-2xl shadow-black/50 p-4 rounded-lg text-center md:text-justify md:w-[500px] h-[500px]"
+            className="relative group md:flex md:flex-col justify-between items-center gap-4 shadow-2xl shadow-black/40 p-4 rounded-lg text-center md:text-justify md:w-[500px] h-[500px]"
             key={card.id}
           >
             <h1 className="font-extrabold text-[15px] md:text-[20px]">

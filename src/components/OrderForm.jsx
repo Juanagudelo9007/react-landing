@@ -97,7 +97,11 @@ const OrderForm = () => {
                   <motion.button
                     type="submit"
                     className="text-white py-2 px-10 w-[250px] bg-red-500 rounded-xl"
-                    whileHover={{ backgroundColor: "#b91c1c" }}
+                    whileHover={{
+                      backgroundColor: "#b91c1c",
+                      scale: 1.1,
+                      boxShadow: "0px 8px 16px rgba(0,0,0,0.3)",
+                    }}
                     whileTap={{ scale: 0.7 }}
                     transition={{
                       duration: 0.23,
@@ -113,7 +117,7 @@ const OrderForm = () => {
                     type="button"
                     className="absolute text-white top-1 right-1  text-[20px]"
                     onClick={handleClose}
-                    whileTap={{ scale: 0.7 }}
+                    whileTap={{ scale: 0.65 }}
                     whileHover={{ color: "black" }}
                     transition={{
                       type: "spring",
