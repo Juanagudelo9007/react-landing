@@ -8,7 +8,10 @@ const WeeklySpecial = () => {
   const { toggleOrder } = useContext(OrderContext);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 p-6 place-items-center text-center">
+    <div
+      id="weekly-special"
+      className="grid grid-cols-1 md:grid-cols-2 p-6 place-items-center text-center"
+    >
       <div className="p-8">
         <h1 className="text-7xl mt-4 text-white font-extrabold md:text-8xl">
           Weekly Special{" "}

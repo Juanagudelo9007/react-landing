@@ -13,7 +13,7 @@ const navLinks = [
   {
     id: 2,
     name: "About",
-    link: "about",
+    link: "#about",
   },
   {
     id: 3,
@@ -23,7 +23,7 @@ const navLinks = [
   {
     id: 4,
     name: "Weekly Special",
-    link: "Weekly Special",
+    link: "#weekly-special",
   },
 ];
 

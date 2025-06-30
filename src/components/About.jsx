@@ -2,8 +2,8 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="bg-white flex p min-h-screen px-6 py-16  ">
-      <div>
+    <div className="bg-white flex p h-[700px] px-6 py-16  ">
+      <div id="about">
         <h1 className="text-8xl font-extrabold mb-10 mt-20">About Us</h1>
         <p className="text-2xl leading-10">
           We don’t just make burgers — we create experiences. At Drip Burgers,
