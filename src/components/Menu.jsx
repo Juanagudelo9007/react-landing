@@ -93,7 +93,7 @@ const Menu = () => {
           transition={{
             type: "spring",
             stiffness: 500,
-            damping: 30,
+            damping: 20,
           }}
         >
           <GrPrevious className="text-[45px]" />
@@ -136,12 +136,12 @@ const Menu = () => {
         <motion.button
           onClick={next}
           whileTap={{
-            scale: 0.7,
+            scale: 0.6,
           }}
           transition={{
             type: "spring",
             stiffness: 500,
-            damping: 30,
+            damping: 20,
           }}
         >
           <GrNext className="text-[45px]" />

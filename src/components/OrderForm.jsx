@@ -140,7 +140,7 @@ const OrderForm = () => {
             transition={{
               duration: 0.4,
             }}
-            className="fixed top-0 left-0 w-full h-full bg-black/60 flex justify-center items-center backdrop-blur-sm"
+            className="z-80 fixed top-0 left-0 w-full h-full bg-black/60 flex justify-center items-center backdrop-blur-sm"
           >
             <div
               className="text-center p-4 rounded-sm
