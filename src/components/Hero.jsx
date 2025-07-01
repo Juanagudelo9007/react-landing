@@ -94,8 +94,8 @@ const Hero = () => {
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{
-              duration: 0.9,
-              delay: 0.7,
+              duration: 1,
+              delay: 1,
             }}
           />
         </div>

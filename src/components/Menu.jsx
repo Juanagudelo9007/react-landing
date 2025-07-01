@@ -83,7 +83,10 @@ const Menu = () => {
   return (
     <div className="w-full min-h-screen bg-white">
       {/* Big Screen */}
-      <div id="menu"  className="hidden md:flex items-center justify-center space-x-4 p-14 h-screen">
+      <div
+        id="menu"
+        className="hidden md:flex items-center justify-center space-x-4 p-14 h-screen"
+      >
         <motion.button
           onClick={prev}
           whileTap={{ scale: 0.7 }}
