@@ -23,7 +23,7 @@ const Hero = () => {
             className="text-white text-6xl mb-5 font-extrabold"
             initial={{ opacity: 0, y: 75 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
             Drip Boss
           </motion.h1>
@@ -44,7 +44,7 @@ const Hero = () => {
             className="flex justify-center gap-8 mt-6"
             initial={{ opacity: 0, y: 80 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 2.2 }}
+            transition={{ duration: 1, delay: 2.1 }}
             viewport={{ once: true }}
           >
             <motion.button
@@ -88,7 +88,16 @@ const Hero = () => {
         </div>
         <div>
           {/* Img */}
-          <img src={Burger} className="md:mt-10" />
+          <motion.img
+            src={Burger}
+            className="md:mt-10"
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{
+              duration: 0.7,
+              delay: 0.9,
+            }}
+          />
         </div>
       </div>
     </section>
