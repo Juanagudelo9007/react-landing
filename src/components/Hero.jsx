@@ -13,6 +13,7 @@ const Hero = () => {
     "This burger is made for those who crave maximum flavor and an epic eating experience.",
     "Get ready to rule the burger game with every bite!",
   ];
+  const baseDelay = 0.3 + 0.2;
 
   return (
     <section className="mt-32">
@@ -22,24 +23,30 @@ const Hero = () => {
             className="text-white text-6xl mb-5 font-extrabold"
             initial={{ opacity: 0, y: 75 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
           >
             Drip Boss
           </motion.h1>
           {text.map((t, i) => (
             <motion.p
-              className="text-white text-justify"
+              className="text-white text-justify leading-6"
               key={i}
               initial={{ opacity: 0, y: 80 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.3 }}
+              transition={{ duration: 0.8, delay: baseDelay + i * 0.3 }}
               viewport={{ once: true }}
             >
               {t}
             </motion.p>
           ))}
 
-          <div className="flex justify-center gap-8 mt-6">
+          <motion.div
+            className="flex justify-center gap-8 mt-6"
+            initial={{ opacity: 0, y: 80 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 2.2 }}
+            viewport={{ once: true }}
+          >
             <motion.button
               className="text-white bg-red-500 py-2 px-10 rounded-xl "
               onClick={toggleOrder}
@@ -77,7 +84,7 @@ const Hero = () => {
             >
               Menu
             </motion.button>
-          </div>
+          </motion.div>
         </div>
         <div>
           {/* Img */}
