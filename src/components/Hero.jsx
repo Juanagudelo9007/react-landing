@@ -6,19 +6,39 @@ import { useContext } from "react";
 const Hero = () => {
   const { toggleOrder } = useContext(OrderContext);
 
+  const text = [
+    "Introducing the Drip Boss — a powerhouse burger loaded with double beef patties,",
+    "crispy double bacon, crunchy pickles, and drenched in our signature, mouth-watering sauces.",
+    "Bold, messy, and absolutely unforgettable.",
+    "This burger is made for those who crave maximum flavor and an epic eating experience.",
+    "Get ready to rule the burger game with every bite!",
+  ];
+
   return (
     <section className="mt-32">
       <div className="grid grid-cols-1 md:grid-cols-2">
         <div className="p-10  ">
-          <h1 className="text-white text-6xl mb-5 font-extrabold">Drip Boss</h1>
-          <p className="text-white text-justify">
-            Introducing the Drip Boss — a powerhouse burger loaded with double
-            beef patties, crispy double bacon, crunchy pickles, and drenched in
-            our signature, mouth-watering sauces. Bold, messy, and absolutely
-            unforgettable, this burger is made for those who crave maximum
-            flavor and an epic eating experience. Get ready to rule the burger
-            game with every bite!
-          </p>
+          <motion.h1
+            className="text-white text-6xl mb-5 font-extrabold"
+            initial={{ opacity: 0, y: 75 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            Drip Boss
+          </motion.h1>
+          {text.map((t, i) => (
+            <motion.p
+              className="text-white text-justify"
+              key={i}
+              initial={{ opacity: 0, y: 80 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: i * 0.3 }}
+              viewport={{ once: true }}
+            >
+              {t}
+            </motion.p>
+          ))}
+
           <div className="flex justify-center gap-8 mt-6">
             <motion.button
               className="text-white bg-red-500 py-2 px-10 rounded-xl "
