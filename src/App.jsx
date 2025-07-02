@@ -12,10 +12,14 @@ import Footer from "./components/Footer";
 const App = () => {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1,
       smooth: true,
       smoothTouch: false,
     });
+
+    {
+      /*Lenis / testing*/
+    }
 
     const raf = (time) => {
       lenis.raf(time);

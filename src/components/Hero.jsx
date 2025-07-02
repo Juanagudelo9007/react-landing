@@ -1,10 +1,24 @@
 import Burger from "../img/5-removebg-preview.png";
-import { motion, AnimatePresence } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import { OrderContext } from "../Context/ContextP";
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 
 const Hero = () => {
   const { toggleOrder } = useContext(OrderContext);
+
+  const ref = useRef();
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
+
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   const text = [
     "Introducing the Drip Boss — a powerhouse burger loaded with double beef patties,",
@@ -16,8 +30,11 @@ const Hero = () => {
   const baseDelay = 0.2 + 0.2;
 
   return (
-    <section className="mt-32">
-      <div className="grid grid-cols-1 md:grid-cols-2">
+    <section className="mt-32 w-full  h-[700]" ref={ref}>
+      <motion.div
+        className="grid grid-cols-1 md:grid-cols-2"
+        style={{ scale, opacity }}
+      >
         <div className="p-10  ">
           <motion.h1
             className="text-white text-6xl mb-5 font-extrabold"
@@ -99,7 +116,7 @@ const Hero = () => {
             }}
           />
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
