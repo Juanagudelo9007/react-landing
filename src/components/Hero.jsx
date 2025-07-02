@@ -16,9 +16,8 @@ const Hero = () => {
     target: ref,
     offset: ["start start", "end start"],
   });
-  
 
-  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
   const text = [
     "Introducing the Drip Boss — a powerhouse burger loaded with double beef patties,",
@@ -30,10 +29,10 @@ const Hero = () => {
   const baseDelay = 0.2 + 0.2;
 
   return (
-    <section className="mt-32 w-full min-h-screen" ref={ref}>
+    <section className="mt-32 w-full h-[700]" ref={ref}>
       <motion.div
         className="grid grid-cols-1 md:grid-cols-2"
-        style={{  opacity }}
+        style={{ opacity }}
       >
         <div className="p-10 ">
           <motion.h1

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext,useRef } from "react";
 import img1 from "../img/burger1.png";
 import img2 from "../img/burger2.png";
 import img3 from "../img/burger3.png";
@@ -7,7 +7,7 @@ import img5 from "../img/burger5.png";
 import img6 from "../img/5-removebg-preview.png";
 import { GrNext, GrPrevious } from "react-icons/gr";
 import { OrderContext } from "../Context/ContextP";
-import { motion } from "framer-motion";
+import { motion,useScroll, useTransform } from "framer-motion";
 
 const cards = [
   {
@@ -80,10 +80,25 @@ const Menu = () => {
     setIndex((prev) => (prev - 1 + cards.length) % cards.length);
   };
 
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 90%", "center 70%"],
+  });
+
+  const scale = useTransform(scrollYProgress, [0, 1], [0.7, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  const y = useTransform(scrollYProgress, [0, 1], [40, 0]);
+
   return (
-    <div className="w-full min-h-screen bg-white">
+    <div
+    ref={ref}
+      className="w-full min-h-screen bg-white"
+    
+    >
       {/* Big Screen */}
-      <div
+      <motion.div 
+      style={{scale,opacity,y }}
         id="menu"
         className="hidden md:flex items-center justify-center space-x-4 p-14 h-screen"
       >
@@ -134,7 +149,7 @@ const Menu = () => {
         >
           <GrNext className="text-[45px]" />
         </motion.button>
-      </div>
+      </motion.div>
 
       {/* Mobile */}
       <div className="md:hidden flex overflow-x-auto snap-x snap-mandatory space-x-4 px-4 py-10">
