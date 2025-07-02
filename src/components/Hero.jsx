@@ -11,14 +11,14 @@ import { useContext, useRef } from "react";
 const Hero = () => {
   const { toggleOrder } = useContext(OrderContext);
 
-  const ref = useRef();
+  const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   });
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
+  
 
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
   const text = [
     "Introducing the Drip Boss — a powerhouse burger loaded with double beef patties,",
@@ -30,14 +30,14 @@ const Hero = () => {
   const baseDelay = 0.2 + 0.2;
 
   return (
-    <section className="mt-32 w-full  h-[700]" ref={ref}>
+    <section className="mt-32 w-full min-h-screen" ref={ref}>
       <motion.div
         className="grid grid-cols-1 md:grid-cols-2"
-        style={{ scale, opacity }}
+        style={{  opacity }}
       >
-        <div className="p-10  ">
+        <div className="p-10 ">
           <motion.h1
-            className="text-white text-6xl mb-5 font-extrabold"
+            className="text-white text-6xl mb-5 font-extrabold mt-10"
             initial={{ opacity: 0, y: 75 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -107,7 +107,7 @@ const Hero = () => {
           {/* Img */}
           <motion.img
             src={Burger}
-            className="md:mt-10"
+            className="md:mt-14"
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{
