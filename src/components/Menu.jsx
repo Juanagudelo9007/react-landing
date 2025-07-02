@@ -1,4 +1,4 @@
-import React, { useState, useContext,useRef } from "react";
+import React, { useState, useContext, useRef } from "react";
 import img1 from "../img/burger1.png";
 import img2 from "../img/burger2.png";
 import img3 from "../img/burger3.png";
@@ -7,7 +7,7 @@ import img5 from "../img/burger5.png";
 import img6 from "../img/5-removebg-preview.png";
 import { GrNext, GrPrevious } from "react-icons/gr";
 import { OrderContext } from "../Context/ContextP";
-import { motion,useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const cards = [
   {
@@ -91,14 +91,10 @@ const Menu = () => {
   const y = useTransform(scrollYProgress, [0, 1], [40, 0]);
 
   return (
-    <div
-    ref={ref}
-      className="w-full min-h-screen bg-white"
-    
-    >
+    <div ref={ref} className="w-full min-h-screen bg-white">
       {/* Big Screen */}
-      <motion.div 
-      style={{scale,opacity,y }}
+      <motion.div
+        style={{ scale, opacity, y }}
         id="menu"
         className="hidden md:flex items-center justify-center space-x-4 p-14 h-screen"
       >
@@ -154,8 +150,9 @@ const Menu = () => {
       {/* Mobile */}
       <div className="md:hidden flex overflow-x-auto snap-x snap-mandatory space-x-4 px-4 py-10">
         {cards.map((card) => (
-          <div
-            className="min-w-[85%] snap-center bg-white shadow-black/40 shadow-xl rounded-lg p-6 relative group"
+          <motion.div
+            className="min-w-[85%] snap-center bg-white shadow-black/40 shadow-xl rounded-lg p-6 relative group "
+            style={{ scale, opacity, y }}
             key={card.id}
           >
             <h1 className="font-extrabold text-[20px] text-center">
@@ -182,7 +179,7 @@ const Menu = () => {
                 Order Now!
               </motion.button>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
