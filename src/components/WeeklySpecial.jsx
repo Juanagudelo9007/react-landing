@@ -1,16 +1,27 @@
 import React from "react";
 import special from "../img/special.png";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { OrderContext } from "../Context/ContextP";
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 
 const WeeklySpecial = () => {
   const { toggleOrder } = useContext(OrderContext);
 
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 85%", "end 65%"],
+  });
+
+  const scale = useTransform(scrollYProgress, [0, 0.5], [0.6, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
   return (
-    <div
+    <motion.div
+      ref={ref}
       id="weekly-special"
       className="grid grid-cols-1 md:grid-cols-2 p-6 place-items-center text-center"
+      style={{ scale, opacity }}
     >
       <div className="p-8">
         <h1 className="text-7xl mt-4 text-white font-extrabold md:text-8xl">
@@ -45,7 +56,7 @@ const WeeklySpecial = () => {
       <div>
         <img src={special} alt="" />
       </div>
-    </div>
+    </motion.div>
   );
 };
 

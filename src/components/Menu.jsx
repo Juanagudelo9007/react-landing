@@ -88,13 +88,12 @@ const Menu = () => {
 
   const scale = useTransform(scrollYProgress, [0, 1], [0.7, 1]);
   const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
-  const y = useTransform(scrollYProgress, [0, 1], [40, 0]);
 
   return (
     <div ref={ref} className="w-full min-h-screen bg-white">
       {/* Big Screen */}
       <motion.div
-        style={{ scale, opacity, y }}
+        style={{ scale, opacity }}
         id="menu"
         className="hidden md:flex items-center justify-center space-x-4 p-14 h-screen"
       >
