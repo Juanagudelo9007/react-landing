@@ -151,7 +151,7 @@ const Menu = () => {
         {cards.map((card) => (
           <motion.div
             className="min-w-[85%] snap-center bg-white shadow-black/40 shadow-xl rounded-lg p-6 relative group "
-            style={{ scale, opacity, y }}
+            style={{ scale, opacity }}
             key={card.id}
           >
             <h1 className="font-extrabold text-[20px] text-center">
