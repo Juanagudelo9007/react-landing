@@ -10,16 +10,16 @@ import About from "./components/About";
 import Footer from "./components/Footer";
 
 const App = () => {
+  {
+    /*Lenis just a sccroll test */
+  }
+
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1,
+      duration: 0.6,
       smooth: true,
       smoothTouch: false,
     });
-
-    {
-      /*Lenis / testing*/
-    }
 
     const raf = (time) => {
       lenis.raf(time);

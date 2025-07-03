@@ -15,8 +15,10 @@ const About = () => {
   return (
     <div ref={ref} className="bg-white flex px-5 py-14 min-h-screen">
       <motion.div id="about" style={{ scale, opacity }}>
-        <h1 className="text-8xl font-extrabold mb-10 mt-20">About Us</h1>
-        <p className="text-2xl leading-10">
+        <h1 className="text-7xl md:text-8xl font-extrabold mb-10 mt-20">
+          About Us
+        </h1>
+        <p className="text-lg  md:text2xl leading-10">
           We don’t just make burgers — we create experiences. At Drip Burgers,
           flavor comes first. Every burger is built to be bold, loaded, and
           unforgettable. From double beef stacks to crispy chicken towers, we
