@@ -84,7 +84,7 @@ const Hero = () => {
             >
               Order Now
             </motion.button>
-            <motion.button
+            <motion.a
               className="text-white bg-red-500 py-2 px-10 rounded-xl shadow-md"
               whileHover={{
                 scale: 1.1,
@@ -97,9 +97,10 @@ const Hero = () => {
                 damping: 20,
                 bounce: 1,
               }}
+              href="#menu"
             >
               Menu
-            </motion.button>
+            </motion.a>
           </motion.div>
         </div>
         <div>

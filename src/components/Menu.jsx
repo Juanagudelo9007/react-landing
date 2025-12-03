@@ -90,7 +90,7 @@ const Menu = () => {
   const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
-    <div ref={ref} className="w-full min-h-screen bg-white">
+    <div ref={ref} className="w-full min-h-screen bg-white" id="menu">
       {/* Big Screen */}
       <motion.div
         style={{ scale, opacity }}
@@ -106,7 +106,7 @@ const Menu = () => {
         </motion.button>
         {visibleCards.map((card) => (
           <div
-            className="relative group md:flex md:flex-col justify-between items-center gap-4 shadow-2xl shadow-black/40 p-4 rounded-lg text-center md:text-justify md:w-[500px] h-[500px]"
+            className="relative group md:flex md:flex-col justify-between items-center gap-4 shadow-2xl shadow-black/40 p-4 rounded-lg text-center md:text-justify h-[200px] md:h-[400px]"
             key={card.id}
           >
             <h1 className="font-extrabold text-[15px] md:text-[20px]">
