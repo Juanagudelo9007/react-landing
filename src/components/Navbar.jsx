@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { FaInstagram, FaFacebook } from "react-icons/fa";
 import { IoMdClose, IoMdMenu } from "react-icons/io";
-import { motion } from "framer-motion";
+import { GiHamburger } from "react-icons/gi";
 
 const navLinks = [
   {
@@ -48,7 +48,9 @@ const Navbar = () => {
     <nav className=" bg-neutral-800 shadow-xl shadow-black/50 w-full fixed top-0 z-70">
       <div className="flex justify-between items-center px-4 py-4 sm:px-12 sm:py-6 ">
         {/*Logo*/}
-        <div className="text-white">logo</div>
+        <div className="text-white">
+          <GiHamburger size={30} />{" "}
+        </div>
         {/*Burger Button*/}
         <button
           className=" z-10 md:hidden block text-red-100 text-[20px] hover:text-red-600 duration-300"

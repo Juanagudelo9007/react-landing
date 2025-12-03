@@ -35,6 +35,7 @@ const Hero = () => {
         style={{ opacity }}
       >
         <div className="p-10 ">
+
           <motion.h1
             className="text-white text-6xl mb-5 font-extrabold mt-10"
             initial={{ opacity: 0, y: 75 }}
